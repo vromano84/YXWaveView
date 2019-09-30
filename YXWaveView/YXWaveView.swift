@@ -8,28 +8,28 @@
 
 import UIKit
 
-open class YXWaveView: UIView {
+@objc open class YXWaveView: UIView {
 
     /// wave curvature (default: 1.5)
-    open var waveCurvature: CGFloat = 1.5
+    @objc open var waveCurvature: CGFloat = 1.5
     /// wave speed (default: 0.6)
-    open var waveSpeed: CGFloat = 0.6
+    @objc open var waveSpeed: CGFloat = 0.6
     /// wave height (default: 5)
-    open var waveHeight: CGFloat = 5
+    @objc open var waveHeight: CGFloat = 5
     /// real wave color
-    open var realWaveColor: UIColor = UIColor.red {
+    @objc open var realWaveColor: UIColor = UIColor.red {
         didSet {
             self.realWaveLayer.fillColor = self.realWaveColor.cgColor
         }
     }
     /// mask wave color
-    open var maskWaveColor: UIColor = UIColor.red {
+    @objc open var maskWaveColor: UIColor = UIColor.red {
         didSet {
             self.maskWaveLayer.fillColor = self.maskWaveColor.cgColor
         }
     }
     /// float over View
-    open var overView: UIView?
+    @objc open var overView: UIView?
     
     /// wave timmer
     fileprivate var timer: CADisplayLink?
@@ -72,7 +72,7 @@ open class YXWaveView: UIView {
      
      - returns: view
      */
-    public convenience init(frame: CGRect, color:UIColor) {
+    @objc public convenience init(frame: CGRect, color:UIColor) {
         self.init(frame: frame)
         
         self.realWaveColor = color
@@ -104,7 +104,7 @@ open class YXWaveView: UIView {
     /**
      Start wave
      */
-    open func start() {
+    @objc open func start() {
         if !_starting {
             _stop()
             _starting = true
